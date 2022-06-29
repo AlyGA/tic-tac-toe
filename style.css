@@ -57,6 +57,10 @@ body {
 
 .boardItem {
   border: solid 5px #4f4538;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
 }
 
 .footer p {
