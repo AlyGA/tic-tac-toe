@@ -28,6 +28,11 @@ const gameBoard = (() => {
     });
   });
 
+  // Checks to see if the game is over
+  const gameOver = () => {
+    //....
+  };
+
   console.log(gameArray);
   return { options };
 })();
