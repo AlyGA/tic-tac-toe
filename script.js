@@ -27,6 +27,10 @@ const gameBoard = () => {
       }
     });
   });
+
+  let players = {
+    player: player,
+  };
   return { gameArray, options };
 };
 gameBoard();
