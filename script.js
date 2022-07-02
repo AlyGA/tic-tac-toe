@@ -1,5 +1,5 @@
 // Gameboard object
-const gameBoard = () => {
+const gameBoard = (() => {
   const gameArray = [];
   const boardPieces = document.querySelectorAll(".boardItem");
 
@@ -28,9 +28,10 @@ const gameBoard = () => {
     });
   });
 
-  let players = {
-    player: player,
-  };
-  return { gameArray, options };
+  console.log(gameArray);
+  return { options };
+})();
+
+const players = (player) => {
+  player = 1;
 };
-gameBoard();
