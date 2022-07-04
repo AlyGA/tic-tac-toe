@@ -1,8 +1,27 @@
+const playerOne = (() => {
+  const boardPieces = document.querySelectorAll(".boardItem");
+  const marker = boardPieces.forEach((item) => {
+    item.addEventListener("click", () => {
+      item.textContent = "O";
+    });
+  });
+  const turn = true;
+  return { marker, turn };
+})();
+
+const playerTwo = (() => {
+  if (playerOne.turn == false) {
+    const body = document.querySelector("body");
+    body.style.backgroundColor = "#C3FCF2";
+  }
+})();
+
 // Gameboard object
 const gameBoard = (() => {
   const gameArray = [];
   const boardPieces = document.querySelectorAll(".boardItem");
 
+  /*
   // Event listener to allow user to choose their X or O option.
   let options = boardPieces.forEach((item) => {
     item.addEventListener("click", () => {
@@ -27,6 +46,7 @@ const gameBoard = (() => {
       }
     });
   });
+  */
 
   // Checks to see if the game is over
   const gameOver = () => {
@@ -34,9 +54,6 @@ const gameBoard = (() => {
   };
 
   console.log(gameArray);
-  return { options };
+  // return { options };
+  return;
 })();
-
-const players = (player) => {
-  player = 1;
-};
