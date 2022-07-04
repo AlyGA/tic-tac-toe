@@ -1,27 +1,9 @@
-const playerOne = (() => {
-  const boardPieces = document.querySelectorAll(".boardItem");
-  const marker = boardPieces.forEach((item) => {
-    item.addEventListener("click", () => {
-      item.textContent = "O";
-    });
-  });
-  const turn = true;
-  return { marker, turn };
-})();
-
-const playerTwo = (() => {
-  if (playerOne.turn == false) {
-    const body = document.querySelector("body");
-    body.style.backgroundColor = "#C3FCF2";
-  }
-})();
-
 // Gameboard object
 const gameBoard = (() => {
   const gameArray = [];
   const boardPieces = document.querySelectorAll(".boardItem");
+  let turn = 0;
 
-  /*
   // Event listener to allow user to choose their X or O option.
   let options = boardPieces.forEach((item) => {
     item.addEventListener("click", () => {
@@ -31,22 +13,20 @@ const gameBoard = (() => {
         return;
       }
 
-      // Checking to see which option a user picked.
-      const choice = prompt(
-        "Which would would you pick? Give either an X or O"
-      );
-      if (choice === "O" || choice === "o") {
-        item.textContent = "O";
-        gameArray.push(item.textContent);
-      } else if (choice === "X" || choice === "x") {
+      if (turn % 2 === 0) {
         item.textContent = "X";
+        document.querySelector(".player-turn").textContent = "Player 2";
         gameArray.push(item.textContent);
-      } else {
-        alert("Invalid input! Make sure it's an X or O!");
       }
+
+      if (turn % 2 !== 0) {
+        item.textContent = "O";
+        document.querySelector(".player-turn").textContent = "Player 1";
+        gameArray.push(item.textContent);
+      }
+      turn++;
     });
   });
-  */
 
   // Checks to see if the game is over
   const gameOver = () => {
@@ -54,6 +34,5 @@ const gameBoard = (() => {
   };
 
   console.log(gameArray);
-  // return { options };
-  return;
+  return { options };
 })();
