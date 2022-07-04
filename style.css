@@ -3,6 +3,9 @@
 Background
 #fefedf
 
+Background 2:
+#C3FCF2
+
 Text
 #EEE1D0
 
@@ -79,6 +82,10 @@ body {
   align-items: center;
 }
 
-.sidebar > h1 {
+.turns {
   padding-bottom: 20%;
+}
+
+.playerswitch {
+  background-color: #fefedf;
 }
