@@ -4,7 +4,7 @@ const gameBoard = (() => {
   const boardPieces = document.querySelectorAll(".boardItem");
   let turn = 0;
 
-  // Event listener to allow user to choose their X or O option.
+  // This is where the controls of the player are held. It will switch from player 1 to player 2.
   let options = boardPieces.forEach((item) => {
     item.addEventListener("click", () => {
       // If a box is already filled, do nothing.
@@ -34,5 +34,5 @@ const gameBoard = (() => {
   };
 
   console.log(gameArray);
-  return { options };
+  return { options, gameOver };
 })();
