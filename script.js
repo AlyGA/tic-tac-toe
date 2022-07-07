@@ -1,5 +1,10 @@
 // Gameboard object
 const gameBoard = (() => {
+  document.querySelector(".player-turn").textContent = `Press the "Start Game"`;
+
+  // Start button
+  const startBtn = document.querySelector(".startButton");
+  startBtn.disabled = false;
   // Reset button
   const resetBtn = document.querySelector(".resetButton");
   const gameArray = [];
@@ -7,6 +12,7 @@ const gameBoard = (() => {
   boardPieces.forEach((tablerows, i) =>
     tablerows.setAttribute("data-index", i)
   );
+
   let turn = 0;
 
   // All the board pieces
@@ -20,45 +26,52 @@ const gameBoard = (() => {
   let box7 = document.querySelector(`[data-index="7"]`);
   let box8 = document.querySelector(`[data-index="8"]`);
 
-  // This is where the controls of the player are held. It will switch from player 1 to player 2.
-  let options = boardPieces.forEach((item) => {
-    item.addEventListener("click", () => {
-      // If a box is already filled, do nothing.
-      if (item.textContent !== "") {
-        alert("This box is already filled! Pick another box");
-        return;
-      }
+  // This starts the game and can only be pressed once.
+  startBtn.addEventListener("click", () => {
+    document.querySelector(".player-turn").textContent = "Player 1";
+    if (startBtn.disabled === false) {
+      // This is where the controls of the player are held. It will switch from player 1 to player 2.
+      let options = boardPieces.forEach((item) => {
+        item.addEventListener("click", () => {
+          // If a box is already filled, do nothing.
+          if (item.textContent !== "") {
+            alert("This box is already filled! Pick another box");
+            return;
+          }
 
-      if (turn % 2 === 0 || turn === 0) {
-        item.textContent = "X";
-        document.querySelector(".player-turn").textContent = "Player 2";
-        gameArray.push(item.textContent);
-      }
+          if (turn % 2 === 0 || turn === 0) {
+            item.textContent = "X";
+            document.querySelector(".player-turn").textContent = "Player 2";
+            gameArray.push(item.textContent);
+          }
 
-      if (turn % 2 !== 0) {
-        item.textContent = "O";
-        document.querySelector(".player-turn").textContent = "Player 1";
-        gameArray.push(item.textContent);
-      }
-      turn++;
-    });
-  });
+          if (turn % 2 !== 0) {
+            item.textContent = "O";
+            document.querySelector(".player-turn").textContent = "Player 1";
+            gameArray.push(item.textContent);
+          }
+          turn++;
+        });
+      });
 
-  const gameOver = () => {
-    // Make if-else statements to check if there is a three in a row or if it is a draw.
-    if (box0.textContent === "X" && box1.textContent === "O") {
-      console.log("this works!");
+      const gameOver = () => {
+        // Make if-else statements to check if there is a three in a row or if it is a draw.
+        if (box0.textContent === "X" && box1.textContent === "O") {
+          console.log("this works!");
+        }
+      };
+
+      resetBtn.addEventListener("click", () => {
+        boardPieces.forEach((item) => {
+          item.textContent = "";
+          turn = 0;
+          document.querySelector(".player-turn").textContent = "Player 1";
+        });
+      });
+
+      console.log(gameArray);
+      startBtn.disabled = true;
+      return { options, gameOver };
     }
-  };
-
-  resetBtn.addEventListener("click", () => {
-    boardPieces.forEach((item) => {
-      item.textContent = "";
-      turn = 0;
-      document.querySelector(".player-turn").textContent = "Player 1";
-    });
   });
-
-  console.log(gameArray);
-  return { options, gameOver };
 })();
