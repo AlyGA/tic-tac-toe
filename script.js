@@ -1,5 +1,7 @@
 // Gameboard object
 const gameBoard = (() => {
+  // Reset button
+  const resetBtn = document.querySelector(".resetButton");
   const gameArray = [];
   const boardPieces = document.querySelectorAll(".boardItem");
   boardPieces.forEach((tablerows, i) =>
@@ -27,7 +29,7 @@ const gameBoard = (() => {
         return;
       }
 
-      if (turn % 2 === 0) {
+      if (turn % 2 === 0 || turn === 0) {
         item.textContent = "X";
         document.querySelector(".player-turn").textContent = "Player 2";
         gameArray.push(item.textContent);
@@ -48,6 +50,15 @@ const gameBoard = (() => {
       console.log("this works!");
     }
   };
+
+  resetBtn.addEventListener("click", () => {
+    boardPieces.forEach((item) => {
+      item.textContent = "";
+      turn = 0;
+      document.querySelector(".player-turn").textContent = "Player 1";
+    });
+  });
+
   console.log(gameArray);
   return { options, gameOver };
 })();
