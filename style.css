@@ -89,3 +89,16 @@ body {
 .playerswitch {
   background-color: #fefedf;
 }
+
+.button-controlls button {
+  margin-top: 50%;
+  width: 100px;
+  height: 30%;
+  border-radius: 20px;
+  background-color: #fefedf;
+  border: none;
+}
+
+.button-controlls button:hover {
+  background-color: #ffff9b;
+}
