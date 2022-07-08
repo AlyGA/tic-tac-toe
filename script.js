@@ -61,7 +61,99 @@ const gameBoard = (() => {
               box2.textContent === "X"
             ) {
               console.log("Player 1 wins!");
-              event.stopPropagation;
+              event.stopImmediatePropagation();
+            } else if (
+              box3.textContent === "X" &&
+              box4.textContent === "X" &&
+              box5.textContent === "X"
+            ) {
+              //... player 1 wins
+            } else if (
+              box6.textContent === "X" &&
+              box7.textContent === "X" &&
+              box8.textContent === "X"
+            ) {
+              //.... player 1 wins
+            } else if (
+              box0.textContent === "X" &&
+              box3.textContent === "X" &&
+              box6.textContent === "X"
+            ) {
+              //.... player 1 wins
+            } else if (
+              box1.textContent === "X" &&
+              box4.textContent === "X" &&
+              box7.textContent === "X"
+            ) {
+              //.... player 1 wins
+            } else if (
+              box2.textContent === "X" &&
+              box5.textContent === "X" &&
+              box8.textContent === "X"
+            ) {
+              //.... player 1 wins
+            } else if (
+              box1.textContent === "X" &&
+              box4.textContent === "X" &&
+              box8.textContent === "X"
+            ) {
+              // .... player 1 wins
+            } else if (
+              box2.textContent === "X" &&
+              box4.textContent === "X" &&
+              box6.textContent === "X"
+            ) {
+              // .... player 1 wins
+              // Scenarios for player 2 winner
+            } else if (
+              box0.textContent === "O" &&
+              box1.textContent === "O" &&
+              box2.textContent === "O"
+            ) {
+              console.log("Player 2 wins!");
+              event.stopImmediatePropagation();
+            } else if (
+              box3.textContent === "O" &&
+              box4.textContent === "O" &&
+              box5.textContent === "O"
+            ) {
+              //... player 2 wins
+            } else if (
+              box6.textContent === "O" &&
+              box7.textContent === "O" &&
+              box8.textContent === "O"
+            ) {
+              //... player 2 wins
+            } else if (
+              box0.textContent === "O" &&
+              box3.textContent === "O" &&
+              box6.textContent === "O"
+            ) {
+              //... player 2 wins
+            } else if (
+              box1.textContent === "O" &&
+              box4.textContent === "O" &&
+              box7.textContent === "O"
+            ) {
+              //... player 2 wins
+            } else if (
+              box2.textContent === "O" &&
+              box5.textContent === "O" &&
+              box8.textContent === "O"
+            ) {
+              //... player 2 wins
+            } else if (
+              box1.textContent === "O" &&
+              box4.textContent === "O" &&
+              box8.textContent === "O"
+            ) {
+              //... player 2 wins
+            } else if (
+              box2.textContent === "O" &&
+              box4.textContent === "O" &&
+              box6.textContent === "O"
+            ) {
+              //... player 2 wins
             }
           })();
         });
