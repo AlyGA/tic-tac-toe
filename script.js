@@ -32,7 +32,7 @@ const gameBoard = (() => {
     if (startBtn.disabled === false) {
       // This is where the controls of the player are held. It will switch from player 1 to player 2.
       let options = boardPieces.forEach((item) => {
-        item.addEventListener("click", () => {
+        item.addEventListener("click", (event) => {
           // If a box is already filled, do nothing.
           if (item.textContent !== "") {
             alert("This box is already filled! Pick another box");
@@ -51,6 +51,19 @@ const gameBoard = (() => {
             gameArray.push(item.textContent);
           }
           turn++;
+
+          // Check the game to see if there is an Xs or Os.
+          const checkGame = (() => {
+            // All scenarios if player one wins
+            if (
+              box0.textContent === "X" &&
+              box1.textContent === "X" &&
+              box2.textContent === "X"
+            ) {
+              console.log("Player 1 wins!");
+              event.stopPropagation;
+            }
+          })();
         });
       });
 
