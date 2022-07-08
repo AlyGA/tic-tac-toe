@@ -60,100 +60,117 @@ const gameBoard = (() => {
               box1.textContent === "X" &&
               box2.textContent === "X"
             ) {
-              console.log("Player 1 wins!");
-              event.stopImmediatePropagation();
+              document.querySelector(".header-title").textContent =
+                "Player 1 Wins!";
             } else if (
               box3.textContent === "X" &&
               box4.textContent === "X" &&
               box5.textContent === "X"
             ) {
-              //... player 1 wins
+              document.querySelector(".header-title").textContent =
+                "Player 1 Wins!";
             } else if (
               box6.textContent === "X" &&
               box7.textContent === "X" &&
               box8.textContent === "X"
             ) {
-              //.... player 1 wins
+              document.querySelector(".header-title").textContent =
+                "Player 1 Wins!";
             } else if (
               box0.textContent === "X" &&
               box3.textContent === "X" &&
               box6.textContent === "X"
             ) {
-              //.... player 1 wins
+              document.querySelector(".header-title").textContent =
+                "Player 1 Wins!";
             } else if (
               box1.textContent === "X" &&
               box4.textContent === "X" &&
               box7.textContent === "X"
             ) {
-              //.... player 1 wins
+              document.querySelector(".header-title").textContent =
+                "Player 1 Wins!";
             } else if (
               box2.textContent === "X" &&
               box5.textContent === "X" &&
               box8.textContent === "X"
             ) {
-              //.... player 1 wins
+              document.querySelector(".header-title").textContent =
+                "Player 1 Wins!";
             } else if (
               box1.textContent === "X" &&
               box4.textContent === "X" &&
               box8.textContent === "X"
             ) {
-              // .... player 1 wins
+              document.querySelector(".header-title").textContent =
+                "Player 1 Wins!";
             } else if (
               box2.textContent === "X" &&
               box4.textContent === "X" &&
               box6.textContent === "X"
             ) {
-              // .... player 1 wins
+              document.querySelector(".header-title").textContent =
+                "Player 1 Wins!";
+
               // Scenarios for player 2 winner
             } else if (
               box0.textContent === "O" &&
               box1.textContent === "O" &&
               box2.textContent === "O"
             ) {
-              console.log("Player 2 wins!");
-              event.stopImmediatePropagation();
+              document.querySelector(".header-title").textContent =
+                "Player 2 Wins!";
             } else if (
               box3.textContent === "O" &&
               box4.textContent === "O" &&
               box5.textContent === "O"
             ) {
-              //... player 2 wins
+              document.querySelector(".header-title").textContent =
+                "Player 2 Wins!";
             } else if (
               box6.textContent === "O" &&
               box7.textContent === "O" &&
               box8.textContent === "O"
             ) {
-              //... player 2 wins
+              document.querySelector(".header-title").textContent =
+                "Player 2 Wins!";
             } else if (
               box0.textContent === "O" &&
               box3.textContent === "O" &&
               box6.textContent === "O"
             ) {
-              //... player 2 wins
+              document.querySelector(".header-title").textContent =
+                "Player 2 Wins!";
             } else if (
               box1.textContent === "O" &&
               box4.textContent === "O" &&
               box7.textContent === "O"
             ) {
-              //... player 2 wins
+              document.querySelector(".header-title").textContent =
+                "Player 2 Wins!";
             } else if (
               box2.textContent === "O" &&
               box5.textContent === "O" &&
               box8.textContent === "O"
             ) {
-              //... player 2 wins
+              document.querySelector(".header-title").textContent =
+                "Player 2 Wins!";
             } else if (
-              box1.textContent === "O" &&
+              box0.textContent === "O" &&
               box4.textContent === "O" &&
               box8.textContent === "O"
             ) {
-              //... player 2 wins
+              document.querySelector(".header-title").textContent =
+                "Player 2 Wins!";
             } else if (
               box2.textContent === "O" &&
               box4.textContent === "O" &&
               box6.textContent === "O"
             ) {
-              //... player 2 wins
+              document.querySelector(".header-title").textContent =
+                "Player 2 Wins!";
+
+              // Tie option
             }
           })();
         });
@@ -171,6 +188,8 @@ const gameBoard = (() => {
           item.textContent = "";
           turn = 0;
           document.querySelector(".player-turn").textContent = "Player 1";
+          document.querySelector(".header-title").textContent =
+            "Start the game down below!";
         });
       });
 
