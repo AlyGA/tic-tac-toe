@@ -2,14 +2,15 @@ class Player {
   constructor(name) {
     this.name = name;
   }
+
+  winsGame() {
+    return `${this.name} Wins!`;
+  }
 }
 
 // Gameboard object
 const gameBoard = (() => {
   document.querySelector(".player-turn").textContent = `Press Start to Begin!`;
-
-  // Create players
-  let playerOne = new Player(prompt("Here:"));
 
   // Start button
   const startBtn = document.querySelector(".startButton");
@@ -37,8 +38,20 @@ const gameBoard = (() => {
 
   // This starts the game and can only be pressed once.
   startBtn.addEventListener("click", () => {
-    document.querySelector(".player-turn").textContent = "Player 1";
     if (startBtn.disabled === false) {
+      //Create players
+      let playerOne = new Player(prompt("Enter Player 1's name:"));
+      let playerTwo = new Player(prompt("Enter Player 2's Name:"));
+      document.querySelector(
+        ".playerOneName"
+      ).textContent = `${playerOne.name} = X`;
+      document.querySelector(
+        ".playerTwoName"
+      ).textContent = `${playerTwo.name} = O`;
+
+      // Set player name
+      document.querySelector(".player-turn").textContent = `${playerOne.name}`;
+
       // This is where the controls of the player are held. It will switch from player 1 to player 2.
       let options = boardPieces.forEach((item) => {
         item.addEventListener("click", function optionItem() {
@@ -50,13 +63,17 @@ const gameBoard = (() => {
 
           if (turn % 2 === 0 || turn === 0) {
             item.textContent = "X";
-            document.querySelector(".player-turn").textContent = "Player 2";
+            document.querySelector(
+              ".player-turn"
+            ).textContent = `${playerTwo.name}`;
             gameArray.push(item.textContent);
           }
 
           if (turn % 2 !== 0) {
             item.textContent = "O";
-            document.querySelector(".player-turn").textContent = "Player 1";
+            document.querySelector(
+              ".player-turn"
+            ).textContent = `${playerOne.name}`;
             gameArray.push(item.textContent);
           }
           turn++;
@@ -69,57 +86,68 @@ const gameBoard = (() => {
               box1.textContent === "X" &&
               box2.textContent === "X"
             ) {
-              document.querySelector(".header-title").textContent =
-                "Player 1 Wins!";
+              document.querySelector(
+                ".header-title"
+              ).textContent = `${playerOne.winsGame()}`;
+              boardPieces.forEach(item, () => {
+                item.removeEventListener("click");
+              });
             } else if (
               box3.textContent === "X" &&
               box4.textContent === "X" &&
               box5.textContent === "X"
             ) {
-              document.querySelector(".header-title").textContent =
-                "Player 1 Wins!";
+              document.querySelector(
+                ".header-title"
+              ).textContent = `${playerOne.winsGame()}`;
             } else if (
               box6.textContent === "X" &&
               box7.textContent === "X" &&
               box8.textContent === "X"
             ) {
-              document.querySelector(".header-title").textContent =
-                "Player 1 Wins!";
+              document.querySelector(
+                ".header-title"
+              ).textContent = `${playerOne.winsGame()}`;
             } else if (
               box0.textContent === "X" &&
               box3.textContent === "X" &&
               box6.textContent === "X"
             ) {
-              document.querySelector(".header-title").textContent =
-                "Player 1 Wins!";
+              document.querySelector(
+                ".header-title"
+              ).textContent = `${playerOne.winsGame()}`;
             } else if (
               box1.textContent === "X" &&
               box4.textContent === "X" &&
               box7.textContent === "X"
             ) {
-              document.querySelector(".header-title").textContent =
-                "Player 1 Wins!";
+              document.querySelector(
+                ".header-title"
+              ).textContent = `${playerOne.winsGame()}`;
             } else if (
               box2.textContent === "X" &&
               box5.textContent === "X" &&
               box8.textContent === "X"
             ) {
-              document.querySelector(".header-title").textContent =
-                "Player 1 Wins!";
+              document.querySelector(
+                ".header-title"
+              ).textContent = `${playerOne.winsGame()}`;
             } else if (
               box1.textContent === "X" &&
               box4.textContent === "X" &&
               box8.textContent === "X"
             ) {
-              document.querySelector(".header-title").textContent =
-                "Player 1 Wins!";
+              document.querySelector(
+                ".header-title"
+              ).textContent = `${playerOne.winsGame()}`;
             } else if (
               box2.textContent === "X" &&
               box4.textContent === "X" &&
               box6.textContent === "X"
             ) {
-              document.querySelector(".header-title").textContent =
-                "Player 1 Wins!";
+              document.querySelector(
+                ".header-title"
+              ).textContent = `${playerOne.winsGame()}`;
 
               // Scenarios for player 2 winner
             } else if (
@@ -127,57 +155,65 @@ const gameBoard = (() => {
               box1.textContent === "O" &&
               box2.textContent === "O"
             ) {
-              document.querySelector(".header-title").textContent =
-                "Player 2 Wins!";
+              document.querySelector(
+                ".header-title"
+              ).textContent = `${playerTwo.winsGame()}`;
             } else if (
               box3.textContent === "O" &&
               box4.textContent === "O" &&
               box5.textContent === "O"
             ) {
-              document.querySelector(".header-title").textContent =
-                "Player 2 Wins!";
+              document.querySelector(
+                ".header-title"
+              ).textContent = `${playerTwo.winsGame()}`;
             } else if (
               box6.textContent === "O" &&
               box7.textContent === "O" &&
               box8.textContent === "O"
             ) {
-              document.querySelector(".header-title").textContent =
-                "Player 2 Wins!";
+              document.querySelector(
+                ".header-title"
+              ).textContent = `${playerTwo.winsGame()}`;
             } else if (
               box0.textContent === "O" &&
               box3.textContent === "O" &&
               box6.textContent === "O"
             ) {
-              document.querySelector(".header-title").textContent =
-                "Player 2 Wins!";
+              document.querySelector(
+                ".header-title"
+              ).textContent = `${playerTwo.winsGame()}`;
             } else if (
               box1.textContent === "O" &&
               box4.textContent === "O" &&
               box7.textContent === "O"
             ) {
-              document.querySelector(".header-title").textContent =
-                "Player 2 Wins!";
+              document.querySelector(
+                ".header-title"
+              ).textContent = `${playerTwo.winsGame()}`;
             } else if (
               box2.textContent === "O" &&
               box5.textContent === "O" &&
               box8.textContent === "O"
             ) {
-              document.querySelector(".header-title").textContent =
-                "Player 2 Wins!";
+              document.querySelector(
+                ".header-title"
+              ).textContent = `${playerTwo.winsGame()}`;
             } else if (
               box0.textContent === "O" &&
               box4.textContent === "O" &&
               box8.textContent === "O"
             ) {
-              document.querySelector(".header-title").textContent =
-                "Player 2 Wins!";
+              document.querySelector(
+                ".header-title"
+              ).textContent = `${playerTwo.winsGame()}`;
             } else if (
               box2.textContent === "O" &&
               box4.textContent === "O" &&
               box6.textContent === "O"
             ) {
-              document.querySelector(".header-title").textContent =
-                "Player 2 Wins!";
+              document.querySelector(
+                ".header-title"
+              ).textContent = `${playerTwo.winsGame()}`;
 
               // Tie option
             }
@@ -203,7 +239,7 @@ const gameBoard = (() => {
 
       console.log(gameArray);
       startBtn.disabled = true;
-      return { options, gameOver, playerOne };
+      return { options, gameOver, playerOne, playerTwo };
     }
   });
 })();
