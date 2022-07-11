@@ -1,6 +1,6 @@
 // Gameboard object
 const gameBoard = (() => {
-  document.querySelector(".player-turn").textContent = `Press the "Start Game"`;
+  document.querySelector(".player-turn").textContent = `Press Start to Begin!`;
 
   // Start button
   const startBtn = document.querySelector(".startButton");
@@ -14,6 +14,8 @@ const gameBoard = (() => {
   );
 
   let turn = 0;
+
+  let canClick = true;
 
   // All the board pieces
   let box0 = document.querySelector(`[data-index="0"]`);
@@ -32,7 +34,7 @@ const gameBoard = (() => {
     if (startBtn.disabled === false) {
       // This is where the controls of the player are held. It will switch from player 1 to player 2.
       let options = boardPieces.forEach((item) => {
-        item.addEventListener("click", (event) => {
+        item.addEventListener("click", function optionItem() {
           // If a box is already filled, do nothing.
           if (item.textContent !== "") {
             alert("This box is already filled! Pick another box");
@@ -62,6 +64,7 @@ const gameBoard = (() => {
             ) {
               document.querySelector(".header-title").textContent =
                 "Player 1 Wins!";
+              canClick = false;
             } else if (
               box3.textContent === "X" &&
               box4.textContent === "X" &&
@@ -175,7 +178,6 @@ const gameBoard = (() => {
           })();
         });
       });
-
       const gameOver = () => {
         // Make if-else statements to check if there is a three in a row or if it is a draw.
         if (box0.textContent === "X" && box1.textContent === "O") {
