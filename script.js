@@ -1,6 +1,15 @@
+class Player {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
 // Gameboard object
 const gameBoard = (() => {
   document.querySelector(".player-turn").textContent = `Press Start to Begin!`;
+
+  // Create players
+  let playerOne = new Player(prompt("Here:"));
 
   // Start button
   const startBtn = document.querySelector(".startButton");
@@ -14,8 +23,6 @@ const gameBoard = (() => {
   );
 
   let turn = 0;
-
-  let canClick = true;
 
   // All the board pieces
   let box0 = document.querySelector(`[data-index="0"]`);
@@ -64,7 +71,6 @@ const gameBoard = (() => {
             ) {
               document.querySelector(".header-title").textContent =
                 "Player 1 Wins!";
-              canClick = false;
             } else if (
               box3.textContent === "X" &&
               box4.textContent === "X" &&
@@ -197,7 +203,7 @@ const gameBoard = (() => {
 
       console.log(gameArray);
       startBtn.disabled = true;
-      return { options, gameOver };
+      return { options, gameOver, playerOne };
     }
   });
 })();
